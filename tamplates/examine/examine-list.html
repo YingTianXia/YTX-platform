@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理-商家审核-商家列表</title>
+    <link rel="stylesheet" href="../../static/css/common.css"/>
+    <link rel="stylesheet" href="../../static/css/examine.css"/>
+</head>
+<body>
+    <div class="pub-content">
+        <div class="pub-right">
+            <div class="pub-title-box">
+                <div class="pub-title">商家列表</div>
+            </div>
+            <div class="pub-box">
+                <div class="examine-select-bar">
+                    <label>主营项目: </label>
+                    <select class="examine-select">
+                        <option value="" selected="true" disabled="true">请选择</option>
+                        <option value="">类型1</option>
+                        <option value="">类型2</option>
+                        <option value="">类型3</option>
+                    </select>
+                    <label>审核状态: </label>
+                    <select class="examine-select">
+                        <option value="" selected="true" disabled="true">请选择</option>
+                        <option value="">类型1</option>
+                        <option value="">类型2</option>
+                        <option value="">类型3</option>
+                    </select>
+                    <label>黑白名单: </label>
+                    <select class="examine-select">
+                        <option value="" selected="true" disabled="true">请选择</option>
+                        <option value="">类型1</option>
+                        <option value="">类型2</option>
+                        <option value="">类型3</option>
+                    </select>
+                    <a class="act-select-btn" href="javascript:;">搜索</a>
+                </div>
+                <div class="examine-search-bar">
+                    <div class="examine-search-type">
+                        <input class="J_test" type="radio" name="additemtype" value="1" id="type1">
+                        <label for="type1">按品牌名称</label>
+                        <input class="J_test" type="radio" name="additemtype" value="2" id="type2">
+                        <label for="type2">按公司名称</label>
+                    </div>
+                    <div class="examine-search">
+                        <input type="text">
+                        <a class="act-select-btn" href="javascript:;">搜索</a>
+                        <span class="examine-total">总计:<em>352</em>家商家</span>
+                    </div>
+                </div>
+                <div class="examine-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="10%">商品ID</th>
+                                <th width="15%">品牌名称</th>
+                                <th width="27%">公司名称</th>
+                                <th width="13%">首次提交时间</th>
+                                <th width="10%">审核状态</th>
+                                <th width="25%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SM00001</td>
+                                <td>vance</td>
+                                <td>杭州灵动商贸有限责任公司</td>
+                                <td>2015-11-11</td>
+                                <td>审核中</td>
+                                <td>
+                                    <a class="examine-table-operation" href="javascript:;">继续审核</a>
+                                    丨
+                                    <a class="examine-table-operation" href="javascript:;">查看详情</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SM00001</td>
+                                <td>vance</td>
+                                <td>杭州灵动商贸有限责任公司</td>
+                                <td>2015-11-11</td>
+                                <td>未通过</td>
+                                <td>
+                                    <a class="examine-table-operation" href="javascript:;">冻结</a>
+                                    丨
+                                    <a class="examine-table-operation" href="javascript:;">已打款</a>
+                                    丨
+                                    <a class="examine-table-operation" href="javascript:;">查看详情</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SM00001</td>
+                                <td>vance</td>
+                                <td>杭州灵动商贸有限责任公司</td>
+                                <td>2015-11-11</td>
+                                <td>未通过</td>
+                                <td>
+                                    <a class="examine-table-operation J_showCompanyAccount" href="javascript:;">查看对公账户</a>
+                                    丨
+                                    <a class="examine-table-operation" href="javascript:;">查看详情</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="act-page">
+                    <a class="act-page-num lt" href="javascript:;">&lt;</a>
+                    <a class="act-page-num" href="javascript:;">1</a>
+                    <a class="act-page-num" href="javascript:;">2</a>
+                    <a class="act-page-num" href="javascript:;">3</a>
+                    ...
+                    <a class="act-page-num" href="javascript:;">5</a>
+                    <a class="act-page-num gt" href="javascript:;">&gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop-mask" id="J_popMask"></div>
+    <div class="pop1 examine-pop1 J_pop" id="pop_companyAccount">
+        <p class="examine-pop-con1"><span>公司名:</span><input type="text" value="杭州灵动商贸有限责任公司"></p>
+        <p class="examine-pop-con1"><span>开户行:</span><input type="text"></p>
+        <p class="examine-pop-con1"><span>银行账户:</span><input type="text"></p>
+        <div class="examine-pop-btnbox">
+            <a class="examine-pop-btn1" href="javascript:;">提交</a>
+            <a class="examine-pop-btn2 J_popClose" href="javascript:;">取消</a>
+        </div>
+    </div>
+<script src="../../static/js/jquery-1.11.3.min.js"></script>
+<script src="../../static/js/examine.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.J_showCompanyAccount').click(function(){
+        pop.popShow('#pop_companyAccount');
+    });
+});
+</script>
+</body>
+</html>
