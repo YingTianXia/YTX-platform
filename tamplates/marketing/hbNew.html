@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后天管理－新人红包创建</title>
+    <link rel="stylesheet" href="../../static/css/common.css"/>
+    <link rel="stylesheet" href="../../static/css/hbManage.css"/>
+</head>
+<body>
+<div class="hbManage">
+    <h3 class="hbManage-h3">红包管理</h3>
+    <p class="hbManage-hr"></p>
+    <div class="hbManage-wrap">
+        <h4 class="hbManage-wrap-title">创建新人红包</h4>
+        <div class="hbManage-wrap-main">
+            <ul class="create-hb-detail">
+                <li class="hbCreate-detail-li">
+                    <span><i>＊</i>红包名称：</span>
+                    <input type="text" placeholder="输入红包名称"/>
+                </li>
+                <li class="hbCreate-detail-li">
+                    <span><i>＊</i>有效期：</span>
+                    <span class="hbActiveTime">自发送之日</span>
+                    <input type="text" placeholder="输入有效期"/>起日内有效
+                </li>
+                <li class="hbCreate-detail-li">
+                    <span><i>＊</i>面值：</span>
+                    <input type="text" placeholder="输入面值"/>元
+                </li>
+                <li class="hbCreate-detail-li">
+                    <span><i>＊</i>发行数量：</span>
+                    <p class="hb-radio"><input class="" type="radio" name="getTime"/>不限制数量</p>
+                    <p class="hb-radio hb-selfRadio">
+                        <input class="" type="radio" name="getTime"/><span>限量发行</span>
+                        <input type="text" class="selfInput" placeholder="输入具体发行量"/>
+                    </p>
+                </li>
+                <li class="hbCreate-detail-li">
+                    <span><i>＊</i>使用条件：</span>
+                    <span class="term">单笔订单中，在指定的宝贝中购物金额满</span><input type="text" placeholder="默认一张"/>张元可使用。 <i>注：不设置表示无门槛</i>。
+                </li>
+            </ul>
+        </div>
+        <sapn class="hb-submit">提交</sapn>
+        <sapn class="hb-cancel">取消</sapn>
+    </div>
+</div>
+</body>
+</html>

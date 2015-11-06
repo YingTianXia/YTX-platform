@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后天管理－红包管理</title>
+    <link rel="stylesheet" href="../../static/css/common.css"/>
+    <link rel="stylesheet" href="../../static/css/hbManage.css"/>
+</head>
+<body>
+    <div class="hbManage">
+        <h3 class="hbManage-h3">红包管理</h3>
+        <p class="hbManage-hr"></p>
+        <div class="hbManage-wrap">
+            <ul class="hb-class">
+                <li class="hb-class-li hb-tab-change hb-class-li-a cur-line">日常红包</li>
+                <li class="hb-class-li hb-tab-change hb-class-li-b">首单红包</li>
+                <li class="hb-class-li hb-tab-change hb-class-li-c">新人红包</li>
+                <li class="hb-class-li hb-tab-change hb-class-li-d">分享红包</li>
+            </ul>
+            <p class="hb-status">
+                <span class="status-name">状态:</span>
+                <select name="" id="" class="status-select">
+                    <option value="">请选择</option>
+                </select>
+                <span class="status-search">搜索</span>
+            </p>
+            <a href="" class="hb-create">创建红包</a>
+            <div class="hbManage-wrap-main ">
+                <ul class="hb-detail-name">
+                    <li class="detail-name-li li-a">红包名称</li>
+                    <li class="detail-name-li li-b">领取方式</li>
+                    <li class="detail-name-li li-c">有效期</li>
+                    <li class="detail-name-li li-d">发行量</li>
+                    <li class="detail-name-li li-e">已领取数</li>
+                    <li class="detail-name-li li-f">以使用数</li>
+                    <li class="detail-name-li li-g">有效数量</li>
+                    <li class="detail-name-li li-h">状态</li>
+                    <li class="detail-name-li li-i">操作</li>
+                </ul>
+                <div class="hb-tab">
+                    <ul class="hb-detail-data">
+                        <li class="detail-data-li li-a">
+                            <p class="data-li-p">面值：10元<br/>二次消费10元红包</p>
+                        </li>
+                        <li class="detail-data-li li-b">会员领取</li>
+                        <li class="detail-data-li li-c">2015-07-20至2015-08-30</li>
+                        <li class="detail-data-li li-d">1000</li>
+                        <li class="detail-data-li li-e">384</li>
+                        <li class="detail-data-li li-f">123</li>
+                        <li class="detail-data-li li-g">234</li>
+                        <li class="detail-data-li li-h">正常</li>
+                        <li class="detail-data-li li-i">
+                            <p class="data-li-p"><a href="">作废</a><a href="">复制链接</a></p></li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../static/js/jquery-1.11.3.min.js"></script>
+    <script>
+        (function($){
+            $('.hb-tab').eq(0).show();
+            $('.hb-tab-change').on('click',function(e){
+                var index =$(this).index();
+                $(this).addClass('cur-line').siblings().removeClass('cur-line');
+                $('.hb-tab').eq(index).show().siblings('.hb-tab').hide();
+            })
+        })(jQuery)
+    </script>
+</body>
+</html>

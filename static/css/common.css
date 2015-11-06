@@ -52,6 +52,10 @@ img{
 .fr {
 	float: right;
 }
+
+em,i{
+	font-style: normal;
+}
 /* 从页面布局上隐藏元素，从布局上隐藏元素 */
 .hidden {
 	display: none;

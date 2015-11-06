@@ -1,0 +1,285 @@
+/*－－－－－－－－－－－－－－－－红包管理公共样式－－－－－－－－－－－－－－*/
+.hbManage{
+    width: 950px;
+    height: auto;
+    padding: 25px;
+    overflow: hidden;
+    float: left;
+}
+.hbManage-h3{
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #fd9500;
+    color: #fff;
+    font-size: 14px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.hbManage-hr{
+    width: 950px;
+    height: 1px;
+    background: #fd9500;
+    margin-bottom: 12px;
+}
+.hbManage-wrap{
+    border: 1px solid #c9c9c9;
+    width: 900px;
+    padding: 0 25px 90px;
+    height: auto;
+    overflow: hidden;
+    background: #f5f5f5;
+    position: relative;
+}
+.hbManage-wrap-title{
+    height: 50px;
+    color: #333;
+    font-size: 12px;
+    line-height: 70px;
+}
+.hbManage-wrap-main{
+    width: 898px;
+    height: 530px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+}
+.hb-cancel,.hb-submit{
+    display: block;
+    position: absolute;
+    width: 80px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #333;
+    bottom: 50px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.hb-submit{
+    left: 330px;
+}
+.hb-cancel{
+    right: 330px;
+}
+/*－－－－－－－－－－－－－－－－红包管理－－－－－－－－－－－－－－*/
+
+.hb-class{
+    width: 900px;
+    height: 50px;
+    border-bottom: 2px solid #e5e5e5;
+    position: relative;
+    margin-bottom: 10px;
+}
+.hb-class-li{
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 14px;
+    z-index: 9;
+}
+.hb-class-li-a{
+    left: 0;
+}
+.hb-class-li-b{
+    left: 80px;
+}
+.hb-class-li-c{
+    left: 160px;
+}
+.hb-class-li-d{
+    left: 240px;
+}
+.cur-line{
+    color: #fd9500;
+    border-bottom: 2px solid #fd9500;
+}
+.hb-detail-data{
+    overflow: hidden;
+    width: 100%;
+    height: 58px;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+.hb-detail-data:hover{
+    background: #ffdea5;
+}
+.hb-detail-name{
+    overflow: hidden;
+    width: 100%;
+    height: 36px;
+    background: #333;
+}
+.detail-name-li{
+    text-align: center;
+    float: left;
+    line-height: 36px;
+    color: #fff;
+}
+.detail-data-li{
+    text-align: center;
+    float: left;
+    line-height: 58px;
+    color: #333;
+    overflow: hidden;
+}
+.li-a{
+    width: 140px;
+}
+.li-b{
+    width: 120px;
+}
+.li-c{
+    width: 180px;
+}
+.li-d{
+    width: 80px;
+}
+.li-e{
+    width: 72px;
+}
+.li-f{
+    width: 72px;
+}
+.li-g{
+    width: 72px;
+}
+.li-h{
+    width: 72px;
+}
+.li-i{
+    width: 90px;
+}
+.data-li-p{
+    margin-top: 4px;
+    line-height: 25px;
+}
+.data-li-p a{
+    display: block;
+    text-decoration: underline;
+}
+.hb-tab{
+    display: none;
+}
+.hb-status{
+    position: absolute;
+    top: 25px;
+    right: 180px;
+    height: 22px;
+}
+.status-name{
+    display: block;
+    float: left;
+    line-height: 22px;
+    height: 22px;
+    width: 40px;
+    text-align: center;
+}
+.status-select{
+    width: 120px;
+    float: left;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #cdcdcd;
+}
+.status-search{
+    float: left;
+    margin-left: 5px;
+    width: 40px;
+    height: 20px;
+    border: 1px solid #cdcdcd;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #333;
+}
+.hb-create{
+    position: absolute;
+    display: block;
+    top: 23px;
+    right: 50px;
+    background: #333;
+    height: 25px;
+    line-height: 25px;
+    color: #fff;
+    width: 80px;
+    text-align: center;
+    border-radius: 5px;
+}
+/*－－－－－－－－－－－－－－－－日常红包－－－－－－－－－－－－－－*/
+
+.create-hb-detail{
+    padding-left: 60px;
+    padding-top: 20px;
+}
+.hbCreate-detail-li{
+    padding: 8px 0;
+    height: 22px;
+    line-height: 22px;
+}
+.hbCreate-detail-li span{
+    width: 84px;
+    display: block;
+    float: left;
+    text-align: right;
+}
+.hbCreate-detail-li .hbActiveTime{
+    width: 70px;
+    text-align: center;
+}
+.hbCreate-detail-li i{
+    color: #ff0000;
+    font-weight: bold;
+}
+.hbCreate-detail-li input{
+    float: left;
+    width: 90px;
+    height: 22px;
+    border: 1px solid #c9caca;
+    color: #999999;
+    line-height: 22px;
+    padding:0 5px;
+    margin-right: 5px;
+}
+
+.hb-radio{
+    float: left;
+    width: 100px;
+    height: 22px;
+    line-height: 22px;
+}
+.hb-radio input{
+    width: 10px;
+    margin-right: 5px;
+}
+.hb-selfRadio{
+    width: 300px;
+}
+.hb-selfRadio span{
+    width: 60px;
+    text-align: center;
+    float: left;
+    display: block;
+}
+.hb-selfRadio .selfInput{
+    float: left;
+    width: 90px;
+    height: 22px;
+    border: 1px solid #c9caca;
+    color: #999999;
+    line-height: 22px;
+    padding:0 5px;
+}
+.hbCreate-detail-li .term{
+    width: 220px;
+    text-align: center;
+}
+.hbCreate-detail-li i{
+
+    color: #fd9500;
+}
