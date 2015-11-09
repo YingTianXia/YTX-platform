@@ -26,4 +26,45 @@ var pop = {
 		}
 	}
 }
+
+var examine = {
+	init:function(){
+		var _this = this;
+		_this.bindEv();
+		_this.showStaus();
+	},
+	bindEv:function(){
+		var _this = this;
+		$('.J_submit').on('click',function(){
+			_this.checkPass();
+		});
+	},
+	checkPass:function(){
+		var _this = this;
+		var passStr = '';
+		$('.J_pass').each(function(i,e){
+			if(e.checked){
+				passStr += '1';
+			}else{
+				passStr += '0';
+			}
+		});
+		console.log(passStr);
+	},
+	showStaus:function(){
+		var _this = this;
+		var staus = '0000101010101011010000000000111';
+		var stausArr = staus.split('');
+		$(stausArr).each(function(i,e){
+			if(e == '1'){
+				$('.J_examineLi').eq(i).append('<span class="examine-icon-right"></span>');
+				$('.J_pass').eq(i).attr('checked','checked');
+			}else if(e == '0'){
+				$('.J_examineLi').eq(i).append('<span class="examine-icon-wrong"></span>');
+				$('.J_pass').eq(i).removeAttr('checked');
+			}
+		});
+	}
+}
 pop.init();
+examine.init();
