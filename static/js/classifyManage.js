@@ -1,7 +1,8 @@
 
 //点击渲染下级类目
-$('.category-attr-item').on('click',function (event) {
-	var id = $(this).find('.category-attr-name').attr('data-itemId');
+$('.category-con').delegate('.category-attr-item','click',function (e) {
+	var _self = $(this);
+	var id = _self.find('.category-attr-name').attr('data-itemId');
 	var _data={
 		id:id
 	}
@@ -14,35 +15,51 @@ $('.category-attr-item').on('click',function (event) {
              success: function(data){
                  console.log(data);
                  //回调成功后需要添加隐藏input
-//               if (xx==1) {
-//               	.....
-//               	$(this).parent('.category-attr-list').after();
-//               }
+                 var pid = data.parentId.id;
+                 if (data.isTrue&&data.isTrue==1) {
+                 	_self.parent('.category-item').after('<div class="category-item"><div class="category-attr-list-con"><ul class="category-attr-list" data-pid="'+pid+'"></ul></div><div class="category-action clearfix" id="C_acitons"><span class="category-action-addNew">新增</span><span class="category-action-sortSure hidden">完成</span></div></div>');
+                 	var listBox = _self.parents('.category-item').next().find('.category-attr-list');
+                 	for (i=0;i<data.itemCategoryList.length;i++) {
+                 		var listClone = _self.clone(true);
+                 		listBox.append(listClone);
+                 		listBox.children('.category-attr-item').eq(i).html(data.itemCategoryList[i].cateName);
+                 		listBox.children('.category-attr-item').eq(i).attr('data-itemId',data.itemCategoryList[i].id);
+                 	}
+                 }
              },
              error: function(res){
                  console.log(res);
              }
 	});
-	 event.stopPropagation();
+	 if (e.cancelBubble) {
+		e.cancelBubble=true;
+	} else{
+		 e.stopPropagation();
+	}
 })
 
 //鼠标经过
-$('.category-attr-item').on('mouseenter',function () {
+$('.category-con').delegate('.category-attr-item','mouseenter',function () {
 	$(this).children('.category-add-editcon').css({'visibility':'visible'});
 	$(this).addClass('category-active');
 })
-$('.category-attr-item').on('mouseleave',function () {
+$('.category-con').delegate('.category-attr-item','mouseleave',function () {
 	$(this).children('.category-add-editcon').css({'visibility':'hidden'});
 	$(this).find('.category-edit-pop').addClass('hidden');
 	$(this).removeClass('category-active');
 })
 //下拉框
-$('.category-attr-edit').on('click',function (event) {
+$('.category-con').delegate('.category-attr-edit','click',function (e) {
 	$('.category-edit-pop').toggleClass('hidden');
-	 event.stopPropagation();
+	//IE事件冒泡的兼容
+	if (e.cancelBubble) {
+		e.cancelBubble=true;
+	} else{
+		 e.stopPropagation();
+	}
 })
 //更名
-$('.category-edit-pop-rename').on('click',function (event) {
+$('.category-con').delegate('.category-edit-pop-rename','click',function (e) {
 	var _self = $(this);
 	var Item = _self.parents('.category-attr-item');
 	var ItemName = Item.find('.category-attr-name').html();
@@ -50,9 +67,13 @@ $('.category-edit-pop-rename').on('click',function (event) {
 	_self.parents('.category-edit-pop').addClass('hidden');
 	Item.find('.category-attr-renameBox').removeClass('hidden');
 	Item.find('.category-attr-rename').val(ItemName);
-	event.stopPropagation();
+	if (e.cancelBubble) {
+		e.cancelBubble=true;
+	} else{
+		 e.stopPropagation();
+	}
 })
-$('.category-attr-renameSure').on('click',function (event) {
+$('.category-con').delegate('.category-attr-renameSure','click',function (e) {
 	var _self = $(this);
 	var Item = _self.parents('.category-attr-item');
 	var ItemRename = Item.find('.category-attr-rename').val();
@@ -79,15 +100,22 @@ $('.category-attr-renameSure').on('click',function (event) {
 	});
 	Item.find('.category-attr-renameBox').addClass('hidden');
 	Item.find('.category-add-editcon').show();
-	event.stopPropagation();
+	if (e.cancelBubble) {
+		e.cancelBubble=true;
+	} else{
+		 e.stopPropagation();
+	}
 });
-
-$('.category-attr-renameCancel').on('click',function (event) {
+$('.category-con').delegate('.category-attr-renameCancel','click',function (e) {
 	var _self = $(this);
 	var Item = _self.parents('.category-attr-item');
 	Item.find('.category-attr-renameBox').addClass('hidden');
 	Item.find('.category-add-editcon').show();
-	event.stopPropagation();
+	if (e.cancelBubble) {
+		e.cancelBubble=true;
+	} else{
+		 e.stopPropagation();
+	}
 })
 //删除
 var pop = {
@@ -121,11 +149,11 @@ var pop = {
     //弹窗初始化
     pop.init();
     //使用
-	$('.category-edit-pop-delete').on('click',function(e){
+    $('.category-con').delegate('.category-edit-pop-delete','click',function (e) {
 		_self = $(this);
 	    pop.popShow('#pop_delete');
 	    //确认删除
-	    $(".J_popSure").on('click',function (event) {
+	    $('.category-con').delegate('.J_popSure','click',function (e) {
 			var Item = _self.parents('.category-attr-item');
 			var itemId = Item.find('.category-attr-name').attr('data-itemId');
 			var _data = {
@@ -151,18 +179,22 @@ var pop = {
 	               console.log(res);
 	           }
 			});
-			event.stopPropagation();
+			if (e.cancelBubble) {
+				e.cancelBubble=true;
+			} else{
+				 e.stopPropagation();
+			}
 		});
 	});
 //排序
-$('.category-edit-pop-sort').on('click',function (event) {
+$('.category-con').delegate('.category-edit-pop-sort','click',function (event) {
 	var ItemList = $('.category-attr-item');
 	ItemList.each(function (i,e) {
 		$(this).find('.category-add-editcon').hide();
 		$(this).find('.category-attr-sortBox').removeClass('hidden').children('.category-attr-sort').val(i+1);
 	})
 	$('.category-action-sortSure').removeClass('hidden');
-	$(".category-attr-sortSure").on('click',function (event) {
+	$('.category-con').delegate('.category-attr-sortSure','click',function (event) {
 		var Num = $(this).parents('.category-attr-item').index();
 			Num = Num +1;
 		var changeNum = $(this).siblings('.category-attr-sort').val();
@@ -178,9 +210,13 @@ $('.category-edit-pop-sort').on('click',function (event) {
 		newItemList.each(function (i,e) {
 			$(this).find('.category-attr-sort').val(i+1);
 		})
-		event.stopPropagation();
+		if (event.cancelBubble) {
+			e.cancelBubble=true;
+		} else{
+			 event.stopPropagation();
+		}
 	});
-	$('.category-action-sortSure').on('click',function (event) {
+	$('.category-con').delegate('.category-action-sortSure','click',function (event) {
 		var arr =[];
 		var newItemList = $('.category-attr-item');
 		newItemList.each(function (i,e) {
@@ -191,65 +227,81 @@ $('.category-edit-pop-sort').on('click',function (event) {
 		$('.category-attr-sortBox').addClass('hidden');
 		$(".category-add-editcon").show();
 		$(".category-action-sortSure").addClass('hidden');
-		event.stopPropagation();
+		if (event.cancelBubble) {
+			e.cancelBubble=true;
+		} else{
+			 event.stopPropagation();
+		}
 	});
-	event.stopPropagation();
+	if (event.cancelBubble) {
+		e.cancelBubble=true;
+	} else{
+		 event.stopPropagation();
+	}
 })
 //底部新增
-function addNew () {
-	$('.category-action-addNew').on('click',function (event) {
-		var itemMould = $('.category-attr-item').eq(0);
-		var itemMouldInit = itemMould.clone(true);
-		$(".category-attr-list").append(itemMouldInit);
-		itemMouldInit.find('.category-attr-name').html('类目名');
-		itemMouldInit.find('.category-attr-newNameBox').removeClass('hidden');
-		itemMouldInit.find('.category-attr-newName').val('类目名');
-		itemMouldInit.find('.category-attr-newName').focus();
-		itemMouldInit.find('.category-attr-newName').select();
-		itemMouldInit.find('.category-add-editcon').hide();
-		$('.category-attr-newNameSure').on('click',function (event) {
-			
-			var _self = $(this);
-			var Item = _self.parents('.category-attr-item');
-			var NewName = Item.find('.category-attr-newName').val();
-			Item.find('.category-attr-name').html(NewName);
-			var pid = _self.parents('.category-attr-list').attr('data-pid');
-			//约定入参格式
-			var _data = {
-				pid:pid,
-				name:NewName
-			}
-			$.ajax({
-				type:"post",
-				url:"/category/save",
-				data: JSON.stringify(_data),
-		             dataType: "json",
-		             contentType: "application/json; charset=utf-8",
-		             success: function(data){
-		                 console.log(data);
-		                 //回调成功后需要添加隐藏input,并重新渲染当前类目或者回调id
-		             },
-		             error: function(res){
-		                 console.log(res);
-		             }
-			});
-			Item.find('.category-attr-newNameBox').addClass('hidden');
-			Item.find('.category-add-editcon').show();
-			event.stopPropagation();
+$('.category-con').delegate('.category-action-addNew','click',function (event) {
+	var itemMould = $('.category-attr-item').eq(0);
+	var itemMouldInit = itemMould.clone(true);
+	$(".category-attr-list").append(itemMouldInit);
+	itemMouldInit.find('.category-attr-name').html('类目名');
+	itemMouldInit.find('.category-attr-newNameBox').removeClass('hidden');
+	itemMouldInit.find('.category-attr-newName').val('类目名');
+	itemMouldInit.find('.category-attr-newName').focus();
+	itemMouldInit.find('.category-attr-newName').select();
+	itemMouldInit.find('.category-add-editcon').hide();
+	$('.category-con').delegate('.category-attr-newNameSure','click',function (event) {
+		var _self = $(this);
+		var Item = _self.parents('.category-attr-item');
+		var NewName = Item.find('.category-attr-newName').val();
+		Item.find('.category-attr-name').html(NewName);
+		var pid = _self.parents('.category-attr-list').attr('data-pid');
+		//约定入参格式
+		var _data = {
+			pid:pid,
+			name:NewName
+		}
+		$.ajax({
+			type:"post",
+			url:"/category/save",
+			data: JSON.stringify(_data),
+	             dataType: "json",
+	             contentType: "application/json; charset=utf-8",
+	             success: function(data){
+	                 console.log(data);
+	                 //回调成功后需要添加隐藏input,并重新渲染当前类目或者回调id
+	             },
+	             error: function(res){
+	                 console.log(res);
+	             }
 		});
-		$('.category-attr-newNameCancel').on('click',function (event) {
-			var _self = $(this);
-			var Item = _self.parents('.category-attr-item');
-			Item.find('.category-attr-newNameBox').addClass('hidden');
-			Item.find('.category-add-editcon').show();
-			event.stopPropagation();
-		})
-		event.stopPropagation();
+		Item.find('.category-attr-newNameBox').addClass('hidden');
+		Item.find('.category-add-editcon').show();
+		if (event.cancelBubble) {
+			e.cancelBubble=true;
+		} else{
+			 event.stopPropagation();
+		}
+	});
+	$('.category-con').delegate('.category-attr-newNameCancel','click',function (event) {
+		var _self = $(this);
+		var Item = _self.parents('.category-attr-item');
+		Item.find('.category-attr-newNameBox').addClass('hidden');
+		Item.find('.category-add-editcon').show();
+		if (event.cancelBubble) {
+			e.cancelBubble=true;
+		} else{
+			 event.stopPropagation();
+		}
 	})
-}
-addNew();
+	if (event.cancelBubble) {
+		e.cancelBubble=true;
+	} else{
+		 event.stopPropagation();
+	}
+})
 // “+”新增
-$(".category-attr-listNew").on('click',function (event) {
+$('.category-con').delegate('.category-attr-listNew','click',function (event) {
 	event.stopPropagation();
 	var pid = $(this).parents('.category-attr-item').find('.category-attr-name').attr('data-itemId');
 	var _data = {
