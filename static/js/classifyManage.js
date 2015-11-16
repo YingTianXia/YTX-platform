@@ -1,4 +1,3 @@
-
 //点击渲染下级类目
 $('.category-con').delegate('.category-attr-item','click',function (e) {
 	var _self = $(this);
@@ -6,31 +5,36 @@ $('.category-con').delegate('.category-attr-item','click',function (e) {
 	var _data={
 		id:id
 	}
-	$.ajax({
-		type:"post",
-		url:"/category/findByParent",
-		data: JSON.stringify(_data),
-             dataType: "json",
-             contentType: "application/json; charset=utf-8",
-             success: function(data){
-                 console.log(data);
-                 //回调成功后需要添加隐藏input
-                 var pid = data.parentId.id;
-                 if (data.isTrue&&data.isTrue==1) {
-                 	_self.parent('.category-item').after('<div class="category-item"><div class="category-attr-list-con"><ul class="category-attr-list" data-pid="'+pid+'"></ul></div><div class="category-action clearfix" id="C_acitons"><span class="category-action-addNew">新增</span><span class="category-action-sortSure hidden">完成</span></div></div>');
-                 	var listBox = _self.parents('.category-item').next().find('.category-attr-list');
-                 	for (i=0;i<data.itemCategoryList.length;i++) {
-                 		var listClone = _self.clone(true);
-                 		listBox.append(listClone);
-                 		listBox.children('.category-attr-item').eq(i).html(data.itemCategoryList[i].cateName);
-                 		listBox.children('.category-attr-item').eq(i).attr('data-itemId',data.itemCategoryList[i].id);
-                 	}
-                 }
-             },
-             error: function(res){
-                 console.log(res);
-             }
-	});
+	if (_self.is('.noPost')!=true) {
+			$.ajax({
+				type:"post",
+				url:"/category/findByParent",
+				data: JSON.stringify(_data),
+		             dataType: "json",
+		             contentType: "application/json; charset=utf-8",
+		             success: function(data){
+		                 console.log(data);
+		                 //回调成功后需要添加隐藏input
+		                 var pid = data.parentId;
+		                 if (data.isTrue&&data.isTrue==1) {
+		                 	_self.parents('.category-item').after('<div class="category-item"><div class="category-attr-list-con"><ul class="category-attr-list" data-pid="'+pid+'"></ul></div><div class="category-action clearfix" id="C_acitons"><span class="category-action-addNew">新增</span><span class="category-action-sortSure hidden">完成</span></div></div>');
+		                 	var listBox = _self.parents('.category-item').next().find('.category-attr-list');
+		                 	for (i=0;i<data.itemCategoryList.length;i++) {
+		                 		var listClone = _self.clone(true);
+		                 		listBox.append(listClone);
+		                 		listBox.children('.category-attr-item').eq(i).find('.category-attr-name').html(data.itemCategoryList[i].cateName);
+		                 		listBox.children('.category-attr-item').eq(i).attr('data-itemId',data.itemCategoryList[i].id);
+		                 	}
+		                 	mousemove();
+		                 }
+		                 _self.addClass('noPost');
+		             },
+		             error: function(res){
+		                 console.log(res);
+		             }
+			});
+	}
+
 	 if (e.cancelBubble) {
 		e.cancelBubble=true;
 	} else{
@@ -39,18 +43,24 @@ $('.category-con').delegate('.category-attr-item','click',function (e) {
 })
 
 //鼠标经过
-$('.category-con').delegate('.category-attr-item','mouseenter',function () {
-	$(this).children('.category-add-editcon').css({'visibility':'visible'});
-	$(this).addClass('category-active');
-})
-$('.category-con').delegate('.category-attr-item','mouseleave',function () {
-	$(this).children('.category-add-editcon').css({'visibility':'hidden'});
-	$(this).find('.category-edit-pop').addClass('hidden');
-	$(this).removeClass('category-active');
-})
+function mousemove () {
+	$('.category-add-editcon').css({'visibility':'hidden'});
+	$('.category-con').delegate('.category-attr-item','mouseenter',function () {
+		$(this).children('.category-add-editcon').css({'visibility':'visible'});
+		$(this).addClass('category-active');
+	})
+	$('.category-con').delegate('.category-attr-item','mouseleave',function () {
+		$(this).children('.category-add-editcon').css({'visibility':'hidden'});
+		$(this).find('.category-edit-pop').addClass('hidden');
+		$(this).removeClass('category-active');
+	})
+}
+mousemove ();
+
+
 //下拉框
 $('.category-con').delegate('.category-attr-edit','click',function (e) {
-	$('.category-edit-pop').toggleClass('hidden');
+	$(this).parents('.category-add-editcon').find('.category-edit-pop').toggleClass('hidden');
 	//IE事件冒泡的兼容
 	if (e.cancelBubble) {
 		e.cancelBubble=true;
