@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        select{
+            width: 100px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<select class='select select-a' name="" id="">
+</select>
+<select class='select select-b' name="" id="">
+
+</select>
+<select class='select select-b' name="" id="">
+
+</select>
+</body>
+<script src="../static/js/jquery-1.11.3.min.js"></script>
+<script>
+    var data={
+        1:"优惠券a",
+        2:"优惠券b",
+        3:"优惠券c"
+    }
+    var dom ='<option value="0">请选择优惠券</option>';
+
+    $.each(data,function(i,v){
+        dom =dom+'<option value='+i+'>'+v+'</option>';
+    })
+
+    $('.select').each(function(i,v){
+        $(v).html(dom);
+    })
+    var a =[];
+    $('.select').on('change',function(){
+        console.log(a.push($(this).val()).join(','))
+        var html ='<option value="0">请选择优惠券</option>',
+                index;
+        $.each(data,function(i,v){
+            if(a.join(',').indexOf(i)==-1){
+               html =html+'<option value='+i+'>'+v+'</option>';
+            }
+        })
+
+        console.log(html);
+        $(this).html(html)
+        a.push($(this).val());
+    })
+
+</script>
+</html>

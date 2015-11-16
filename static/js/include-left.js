@@ -1,4 +1,4 @@
-$('.left-item-title').on('click',function(){
+$(document).on('click','.left-item-title',function(){
 	var _self = $(this);
 	_self.siblings().slideToggle();
 	if (_self.hasClass('left-item-active')) {
@@ -7,7 +7,7 @@ $('.left-item-title').on('click',function(){
 		_self.addClass('left-item-active');
 	};
 })
-$('.left-item-content-text').on('click',function () {
+$(document).on('click','.left-item-content-text',function () {
 	$('.left-item-content-text').removeClass('left-text-active');
 	$(this).addClass('left-text-active');
 })

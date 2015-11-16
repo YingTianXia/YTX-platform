@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>后天管理－日常红包创建</title>
+    <link rel="stylesheet" href="../../static/css/common.css"/>
+    <link rel="stylesheet" href="../../static/css/include.css"/>
+    <link rel="stylesheet" href="../../static/css/marketing.css"/>
+    <link rel="stylesheet" href="../../static/css/laydate-skin.css"/>
+    <link rel="stylesheet" href="../../static/css/laydate.css"/>
+</head>
+<body>
+<div ng-include="'../include/head.html'"></div>
+<div class="hb-wrap">
+    <div ng-include="'../include/left.html'"></div>
+    <div class="hbManage">
+        <h3 class="hbManage-h3">红包管理</h3>
+        <p class="hbManage-hr"></p>
+        <div class="hbManage-wrap">
+            <h4 class="hbManage-wrap-title">创建红包</h4>
+            <div class="hbManage-wrap-main">
+                <div class="select-hb-wrap">
+                    <span><i>＊</i>红包名称：</span>
+                    <select  id="" class="select-hb">
+                        <option value="1">日常红包</option>
+                        <option value="2">首单红包</option>
+                        <option value="3">新人红包</option>
+                        <option value="4">分享红包</option>
+                    </select>
+                </div>
+                <!--日常红包-->
+                <ul class="create-hb-detail" >
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>领用方式：</span>
+                            <p class="hb-radio"><input class="" type="radio" value="1" name="recipientsWay" />系统自动发放</p>
+                            <p class="hb-radio"><input class="" type="radio"  value="2" name="recipientsWay" />用户领取</p>
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>发放时间：</span>
+                            <p class="hb-radio hb-selfRadio">
+                                <input class="" type="radio"  value="1" name="provideDate" />
+                                <span>立即发放</span>
+                                <input class="j-selfInput" type="radio" value="2" name="provideDate"/><span>自定义</span>
+                                <input type="text" class="selfInput selfInputTime"/>
+                            </p>
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>生效时间：</span>
+                            <p class="hb-radio hb-selfRadio">
+                                <input class="" value="1" type="radio" name="efficientDate"/><span>领取/发放日</span>
+                                <input class="j-selfInput" type="radio" value="2" name="efficientDate"/><span>自定义</span>
+                                <input type="text" class="selfInput selfInputTime"/>
+                            </p>
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>有效期：</span>
+                            <span class="hbActiveTime">自发送之日起</span>
+                            <input type="text" name="validDate" placeholder="输入有效期"/>日内有效
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>面值：</span>
+                            <input type="number" name="faceValue" placeholder="输入面值"/>元
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>发行数量：</span>
+                            <p class="hb-radio hb-selfRadio">
+                                <input class="" value="1" type="radio" name="releaseNum"/><span>不限制数量</span>
+                                <input class="j-selfInput" type="radio" value="2" name="releaseNum"/><span>限量发行</span>
+                                <input type="text" class="selfInput" placeholder="输入具体发行量"/>
+                            </p>
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>使用条件：</span>
+                            <span class="term">单笔订单中，在指定的宝贝中购物金额满</span><input type="number" name="useCondition" placeholder="输入金额"/>元可使用。 <i>注：不设置表示无门槛</i>。
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>每人限领：</span>
+                            <input type="number" name="limitRecipients" value="1"/>张
+                        </li>
+                    </ul>
+                <!--首单红包-->
+                <ul class="create-hb-detail" >
+                    <li class="hbCreate-detail-li">
+                        <span><i>＊</i>领用方式：</span>
+                        <p class="hb-radio"><input class="" type="radio" value="1" name="recipientsWay" />系统自动发放</p>
+                        <p class="hb-radio"><input class="" type="radio" value="2" name="recipientsWay" />用户领取</p>
+                    </li>
+                    <li class="hbCreate-detail-li">
+                        <span><i>＊</i>发放时间：</span>
+                        <p class="hb-radio hb-selfRadio">
+                            <input class="" type="radio" value="1" name="provideDate" /><span>立即发放</span>
+                            <input class="j-selfInput" type="radio" value="2" name="provideDate"/><span>自定义</span>
+                            <input type="text" class="selfInput selfInputTime"/>
+                        </p>
+                    </li>
+                    <li class="hbCreate-detail-li">
+                        <span><i>＊</i>生效时间：</span>
+                        <p class="hb-radio hb-selfRadio">
+                            <input class="" value="1" type="radio" name="efficientDate"/><span>领取/发放日</span>
+                            <input class="j-selfInput" type="radio" value="2" name="efficientDate"/><span>自定义</span>
+                            <input type="text" class="selfInput selfInputTime"/>
+                        </p>
+                    </li>
+                    <li class="hbCreate-detail-li">
+                        <span><i>＊</i>有效期：</span>
+                        <span class="hbActiveTime">自发送之日起</span>
+                        <input type="text" name="validDate" placeholder="输入有效期"/>日内有效
+                    </li>
+                    <li class="hbCreate-detail-li">
+                        <span><i>＊</i>面值：</span>
+                        <input type="number" name="faceValue" placeholder="输入面值"/>元
+                    </li>
+                    <li class="hbCreate-detail-li">
+                        <span><i>＊</i>发行数量：</span>
+                        <p class="hb-radio hb-selfRadio">
+                            <input class="" value="1" type="radio" name="releaseNum"/><span>不限制数量</span>
+                            <input class="j-selfInput" type="radio" value="2" name="releaseNum"/><span>限量发行</span>
+                            <input type="text" class="selfInput" placeholder="输入具体发行量"/>
+                        </p>
+                    </li>
+                    <li class="hbCreate-detail-li">
+                        <span><i>＊</i>使用条件：</span>
+                        <span class="term">单笔订单中，在指定的宝贝中购物金额满</span><input type="number" name="useCondition" placeholder="输入金额"/>元可使用。 <i>注：不设置表示无门槛</i>。
+                    </li>
+                    <li class="hbCreate-detail-li">
+                        <span><i>＊</i>每人限领：</span>
+                        <input type="number" name="limitRecipients" value="1"/>张
+                    </li>
+                </ul>
+                <!--新人红包-->
+                <ul class="create-hb-detail">
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>有效期：</span>
+                            <span class="hbActiveTime">自发送之日起</span>
+                            <input type="text" name="validDate" placeholder="输入有效期"/>日内有效
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>面值：</span>
+                            <input type="number" name="faceValue" placeholder="输入面值"/>元
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>发行数量：</span>
+                            <p class="hb-radio hb-selfRadio">
+                                <input class="" value="1" type="radio" name="releaseNum"/><span>不限制数量</span>
+                                <input class="j-selfInput" type="radio" value="2" name="releaseNum"/><span>限量发行</span>
+                                <input type="text" class="selfInput" placeholder="输入具体发行量"/>
+                            </p>
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>使用条件：</span>
+                            <span class="term">单笔订单中，在指定的宝贝中购物金额满</span><input type="number" name="useCondition" placeholder="输入金额"/>元可使用。 <i>注：不设置表示无门槛</i>。
+                        </li>
+                    </ul>
+                <!--分享红包-->
+                <ul class="create-hb-detail">
+                        <li class="hbCreate-detail-li">
+                            <span ><i>＊</i>红包有效期：</span>
+                            <span class="hbActiveTime">自发送之日起</span>
+                            <input type="text" placeholder="输入有效期" name="validDate"/>日内有效
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>面值：</span>
+                            <input type="number" name="faceValue" placeholder="输入面值"/>元
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>发行数量：</span>
+                            <p class="hb-radio hb-selfRadio">
+                                <input class="" value="1" type="radio" name="releaseNum"/><span>不限制数量</span>
+                                <input class="j-selfInput" type="radio" value="2" name="releaseNum"/><span>限量发行</span>
+                                <input type="text" class="selfInput" placeholder="输入具体发行量"/>
+                            </p>
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>使用条件：</span>
+                            <span class="term">单笔订单中，在指定的宝贝中购物金额满</span><input type="number" name="useCondition" placeholder="输入金额"/>元可使用。 <i>注：不设置表示无门槛</i>。
+                        </li>
+                        <li class="hbCreate-detail-li">
+                            <span><i>＊</i>分享有效期：</span>
+                            <input type="number" value="6" name="shareValidDate"/>个月
+                        </li>
+                    </ul>
+            </div>
+            <sapn class="hb-submit">提交</sapn>
+            <sapn class="hb-cancel">取消</sapn>
+        </div>
+    </div>
+</div>
+<script src="../../static/js/jquery-1.11.3.min.js"></script>
+<script src="../../static/js/angular.min.js"></script>
+<script src="../../static/js/include-left.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/laydate.dev.js"></script>
+<script src="../../static/js/hbCreate.js"></script>
+</body>
+</html>
