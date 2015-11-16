@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家管理-商家列表</title>
+    <link rel="stylesheet" href="../../static/css/common.css"/>
+</head>
+<style type="text/css">
+
+.pub-content{
+    width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    color: #333;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.pub-right{
+    width: 950px;
+    padding: 30px 25px 70px;
+    float: right;
+}
+.pub-title-box{
+    border-bottom: solid 1px #fd9500;
+    line-height: 0;
+    text-align: left;
+}
+.pub-title{
+    font-size: 14px;
+    color: #fff;
+    line-height: 34px;
+    padding: 0 25px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+    background-color: #fd9500;
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+}
+.pub-box{
+    border: solid 1px #c9c9c9;
+    padding: 20px 25px 40px;
+    background-color: #f5f5f5;
+    margin-top: 15px;
+}
+.pub-box-noborder{
+    padding: 20px 20px 40px;
+}
+.users-search-bar{
+    line-height: 26px;
+    padding-top: 20px;
+}
+
+.users-search-bar input[type="text"]{
+    width: 140px;
+    padding: 0 5px;
+    height: 24px;
+    border: solid 1px #c9c9c9; 
+    margin-right: 15px;
+}
+.users-select{
+    width: 120px;
+    margin: 0 10px;
+}
+.users-select-btn{
+    padding: 0 20px;
+    height: 26px;
+    border-radius: 5px;
+    background-color: #fd9500;
+    color: #fff;
+    display: inline-block;
+}
+.users-table{
+    margin: 20px 0 0;
+}
+.users-table table{
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 1px #c9c9c9; 
+}
+.users-table th{
+    text-align: center;
+    font-weight: normal;
+    padding: 15px 0;
+    background-color: #eeeeee;
+    border-bottom: solid 1px #c9c9c9; 
+}
+.users-table td{
+    padding: 15px 5px;
+    text-align: center;
+    border-bottom: solid 1px #c9c9c9; 
+}
+.act-page{
+    text-align: center;
+    color: #d9d9d9;
+    margin-top: 20px;
+}
+.act-page-num{
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    color: #d9d9d9;
+    border: solid 1px #d9d9d9;
+    line-height: 20px;
+}
+.users-table-link{
+    display: inline;
+    color: #4598c8;
+}
+</style>
+<body>
+    <div class="pub-content">
+        <div class="pub-right">
+            <div class="pub-title-box">
+                <div class="pub-title">商家列表</div>
+            </div>
+            <div class="pub-box-noborder">
+                <div class="pub-box">
+                    <div class="users-search-bar">
+                        <label>会员昵称:</label>
+                        <input type="text">
+                        <label>微信账号:</label>
+                        <input type="text">
+                    </div>
+                    <div class="users-search-bar">
+                        <label>开始时间:</label>
+                        <input type="text">
+                        <label>结束时间:</label>
+                        <input type="text">
+                    </div>
+                    <div class="users-search-bar">
+                        <label>排列顺序:</label>
+                        <select class="users-select">
+                            <option value="" selected="true" disabled="true">请选择</option>
+                            <option value="">类型1</option>
+                            <option value="">类型2</option>
+                            <option value="">类型3</option>
+                        </select>
+                        <a class="users-select-btn" href="javascript:;">确定</a>
+                    </div>
+                </div>
+                <div class="users-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="20%">微信账号</th>
+                                <th width="20%">姓名</th>
+                                <th width="15%">积分</th>
+                                <th width="15%">优惠券</th>
+                                <th width="15%">红包</th>
+                                <th width="15%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>11111111</td>
+                                <td>阿猫</td>
+                                <td>12312</td>
+                                <td>&yen;50.00</td>
+                                <td>&yen;50.00</td>
+                                <td><a class="users-table-link" href="javascript:;">查看详情</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="act-page">
+                    <a class="act-page-num lt" href="javascript:;">&lt;</a>
+                    <a class="act-page-num" href="javascript:;">1</a>
+                    <a class="act-page-num" href="javascript:;">2</a>
+                    <a class="act-page-num" href="javascript:;">3</a>
+                    ...
+                    <a class="act-page-num" href="javascript:;">5</a>
+                    <a class="act-page-num gt" href="javascript:;">&gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="../../static/js/jquery-1.11.3.min.js"></script>
+<script>
+(function($){
+})(jQuery)
+</script>
+</body>
+</html>
