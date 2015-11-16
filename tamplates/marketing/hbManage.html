@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
     <meta charset="UTF-8">
     <title>后天管理－红包管理</title>
     <link rel="stylesheet" href="../../static/css/common.css"/>
-    <link rel="stylesheet" href="../../static/css/hbManage.css"/>
+    <link rel="stylesheet" href="../../static/css/marketing.css"/>
+    <link rel="stylesheet" href="../../static/css/include.css"/>
 </head>
 <body>
-    <div class="hbManage">
+    <div ng-include="'../include/head.html'"></div>
+    <div class="hb-wrap">
+        <div ng-include="'../include/left.html'"></div>
+        <div class="hbManage">
         <h3 class="hbManage-h3">红包管理</h3>
         <p class="hbManage-hr"></p>
         <div class="hbManage-wrap">
@@ -19,17 +23,19 @@
             </ul>
             <p class="hb-status">
                 <span class="status-name">状态:</span>
-                <select name="" id="" class="status-select">
+                <select name="" id="J-selectStatus" class="status-select" >
                     <option value="">请选择</option>
+                    <option value="1">有效</option>
+                    <option value="2">无效</option>
                 </select>
-                <span class="status-search">搜索</span>
+                <span class="status-search" id="J-searchRed">搜索</span>
             </p>
-            <a href="" class="hb-create">创建红包</a>
+            <a href="" target="_blank" class="hb-create J-createNew">创建红包</a>
             <div class="hbManage-wrap-main ">
                 <ul class="hb-detail-name">
                     <li class="detail-name-li li-a">红包名称</li>
                     <li class="detail-name-li li-b">领取方式</li>
-                    <li class="detail-name-li li-c">有效期</li>
+                    <li class="detail-name-li li-c">生效时间</li>
                     <li class="detail-name-li li-d">发行量</li>
                     <li class="detail-name-li li-e">已领取数</li>
                     <li class="detail-name-li li-f">以使用数</li>
@@ -41,32 +47,27 @@
                     <ul class="hb-detail-data">
                         <li class="detail-data-li li-a">
                             <p class="data-li-p">面值：10元<br/>二次消费10元红包</p>
-                        </li>
+                            </li>
                         <li class="detail-data-li li-b">会员领取</li>
                         <li class="detail-data-li li-c">2015-07-20至2015-08-30</li>
-                        <li class="detail-data-li li-d">1000</li>
+                        <li class="detail-data-li li-d">999</li>
                         <li class="detail-data-li li-e">384</li>
                         <li class="detail-data-li li-f">123</li>
                         <li class="detail-data-li li-g">234</li>
-                        <li class="detail-data-li li-h">正常</li>
+                        <li class="detail-data-li li-h j-red-status">有效</li>
                         <li class="detail-data-li li-i">
-                            <p class="data-li-p"><a href="">作废</a><a href="">复制链接</a></p></li>
+                            <a class="J-changeCreate" redPacketId="1" target="_blank">修改</a>
+                            <a class="J-changeRed" redPacketId="1">关闭</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+    </div>
     <script src="../../static/js/jquery-1.11.3.min.js"></script>
-    <script>
-        (function($){
-            $('.hb-tab').eq(0).show();
-            $('.hb-tab-change').on('click',function(e){
-                var index =$(this).index();
-                $(this).addClass('cur-line').siblings().removeClass('cur-line');
-                $('.hb-tab').eq(index).show().siblings('.hb-tab').hide();
-            })
-        })(jQuery)
-    </script>
+    <script src="../../static/js/angular.min.js"></script>
+    <script src="../../static/js/include-left.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../static/js/hbManage.js"></script>
 </body>
 </html>
