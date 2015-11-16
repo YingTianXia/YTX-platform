@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html ng-app="erpContainer">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<title>迎天下ERP管理系统-分类管理</title>
+<link rel="stylesheet" type="text/css" href="../../static/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../static/css/classifyManage.css"/>
+</head>
+<body>
+<div class="erp-container">
+	<div class="container clearfix">
+		<div class="erp-main">
+			<div class="erp-main-title-con clearfix" style="margin-top:0;">
+				<h1 class="erp-main-title">分类管理</h1>
+			</div>
+			<div class="category-con">
+				<div class="category-list clearfix" id="cateCon">
+					<div class="category-item">
+						<!--<p class="category-item-title">一级类目</p>-->
+						<div class="category-attr-list-con">
+							<ul class="category-attr-list" data-pid="0">
+								<li class="category-attr-item">
+									<span class="category-attr-name" data-itemId="1">服装1</span>
+									<div class="category-attr-renameBox hidden">
+										<input class="category-attr-rename" name="category-attr-rename" value=""/>
+										<div>
+											<span class="category-attr-renameSure">完成</span>
+											<span class="category-attr-renameCancel">取消</span>
+										</div>
+									</div>
+									<div class="category-attr-sortBox hidden">
+										<input class="category-attr-sort" name="category-attr-sort" value="" />
+										<span class="category-attr-sortSure">确认</span>
+									</div>
+									<div class="category-attr-newNameBox hidden">
+										<input class="category-attr-newName" name="category-attr-newName" value=""/>
+										<div>
+											<span class="category-attr-newNameSure">完成</span>
+											<span class="category-attr-newNameCancel">取消</span>
+										</div>
+									</div>
+									<div class="category-add-editcon">
+										<span class="category-attr-listNew">+</span>
+										<a class="category-attr-edit">编辑</a>
+										<ul class="category-edit-pop hidden">
+											<li class="category-edit-pop-rename">更名</li>
+											<li class="category-edit-pop-property"><a href="">属性</a></li>
+											<li class="category-edit-pop-sort">排序</li>
+											<li class="category-edit-pop-delete">删除</li>
+										</ul>
+									</div>
+								</li>
+								<li class="category-attr-item">
+									<span class="category-attr-name" data-itemId="2">服装2</span>
+									<div class="category-attr-renameBox hidden">
+										<input class="category-attr-rename" name="category-attr-rename" value=""/>
+										<div>
+											<span class="category-attr-renameSure">完成</span>
+											<span class="category-attr-renameCancel">取消</span>
+										</div>
+									</div>
+									<div class="category-attr-sortBox hidden">
+										<input class="category-attr-sort" name="category-attr-sort" value="" />
+										<span class="category-attr-sortSure">确认</span>
+									</div>
+									<div class="category-add-editcon">
+										<span class="category-attr-listNew">+</span>
+										<a class="category-attr-edit">编辑</a>
+										<ul class="category-edit-pop">
+											<li class="category-edit-pop-rename">更名</li>
+											<li class="category-edit-pop-property"><a href="">属性</a></li>
+											<li class="category-edit-pop-sort">排序</li>
+											<li class="category-edit-pop-delete">删除</li>
+										</ul>
+									</div>
+								</li>
+								<li class="category-attr-item">
+									<span class="category-attr-name" data-itemId="3">服装3</span>
+									<div class="category-attr-renameBox hidden">
+										<input class="category-attr-rename" name="category-attr-rename" value=""/>
+										<div>
+											<span class="category-attr-renameSure">完成</span>
+											<span class="category-attr-renameCancel">取消</span>
+										</div>
+									</div>
+									<div class="category-attr-sortBox hidden">
+										<input class="category-attr-sort" name="category-attr-sort" value="" />
+										<span class="category-attr-sortSure">确认</span>
+									</div>
+									<div class="category-add-editcon">
+										<span class="category-attr-listNew">+</span>
+										<a class="category-attr-edit">编辑</a>
+										<ul class="category-edit-pop">
+											<li class="category-edit-pop-rename">更名</li>
+											<li class="category-edit-pop-property"><a href="">属性</a></li>
+											<li class="category-edit-pop-sort">排序</li>
+											<li class="category-edit-pop-delete">删除</li>
+										</ul>
+									</div>
+								</li>
+								<li class="category-attr-item">
+									<span class="category-attr-name" data-itemId="4">服装4</span>
+									<div class="category-attr-renameBox hidden">
+										<input class="category-attr-rename" name="category-attr-rename" value=""/>
+										<div>
+											<span class="category-attr-renameSure">完成</span>
+											<span class="category-attr-renameCancel">取消</span>
+										</div>
+									</div>
+									<div class="category-attr-sortBox hidden">
+										<input class="category-attr-sort" name="category-attr-sort" value="" />
+										<span class="category-attr-sortSure">确认</span>
+									</div>
+									<div class="category-add-editcon">
+										<span class="category-attr-listNew">+</span>
+										<a class="category-attr-edit">编辑</a>
+										<ul class="category-edit-pop">
+											<li class="category-edit-pop-rename">更名</li>
+											<li class="category-edit-pop-property"><a href="">属性</a></li>
+											<li class="category-edit-pop-sort">排序</li>
+											<li class="category-edit-pop-delete">删除</li>
+										</ul>
+									</div>
+								</li>
+								<li class="category-attr-item">
+									<span class="category-attr-name" data-itemId="5">服装5</span>
+									<div class="category-attr-renameBox hidden">
+										<input class="category-attr-rename" name="category-attr-rename" value=""/>
+										<div>
+											<span class="category-attr-renameSure">完成</span>
+											<span class="category-attr-renameCancel">取消</span>
+										</div>
+									</div>
+									<div class="category-attr-sortBox hidden">
+										<input class="category-attr-sort" name="category-attr-sort" value="" />
+										<span class="category-attr-sortSure">确认</span>
+									</div>
+									<div class="category-add-editcon">
+										<span class="category-attr-listNew">+</span>
+										<a class="category-attr-edit">编辑</a>
+										<ul class="category-edit-pop">
+											<li class="category-edit-pop-rename">更名</li>
+											<li class="category-edit-pop-property"><a href="">属性</a></li>
+											<li class="category-edit-pop-sort">排序</li>
+											<li class="category-edit-pop-delete">删除</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="category-action clearfix" id="C_acitons">
+							<span class="category-action-addNew">新增</span>
+							<span class="category-action-sortSure hidden">完成</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pop1 size-pop1 J_pop" id="pop_delete">
+	        <p class="size-pop-con1">确定删除此类目么?</p>
+	        <div class="size-pop-btnbox clearfix">
+	            <a class="size-pop-btn1 J_popSure" href="javascript:;">确定</a>
+	            <a class="size-pop-btn2 J_popClose" href="javascript:;">取消</a>
+	        </div>
+	    </div>
+	    <div class="pop1 size-pop2 J_pop2" id="pop_undelete">
+	        <p class="size-pop-con2">无法删除此类目，因为此类目有子类目，或者此类目及其子类目中有商品。</p>
+	        <div class="size-pop-btnbox clearfix">
+	            <a class="size-pop-btn1 J_popSure" href="javascript:;">确定</a>
+	        </div>
+	    </div>
+		<div class="pop-mask" id="J_popMask"></div>
+	</div>
+</div>
+<script src="../../static/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/classifyManage.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
