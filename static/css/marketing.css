@@ -126,11 +126,6 @@
 }
 .act-batch-btn1{
     display: inline-block;
-<<<<<<< HEAD
-    *display: inline;
-    *zoom:1;
-=======
->>>>>>> hangwei
     color: #333;
     border-radius: 5px;
     border: solid 1px #333;
@@ -226,10 +221,7 @@
 .act-set{
     padding-left: 120px;
     line-height: 30px;
-<<<<<<< HEAD
-=======
     display: none;
->>>>>>> hangwei
 }
 .act-set-btn{
     display: inline-block;
@@ -302,8 +294,6 @@
 .additem-table-operation{
     display: inline;
 }
-<<<<<<< HEAD
-=======
 /*－－－－－－－－－－－－－－－－红包管理公共样式－－－－－－－－－－－－－－*/
 .hb-wrap{
     width: 1200px;
@@ -625,5 +615,3 @@
 #J-red-open{
     display: none;
 }
->>>>>>> hangwei
-
