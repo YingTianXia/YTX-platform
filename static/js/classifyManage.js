@@ -1,3 +1,26 @@
+/*
+                   _ooOoo_
+                  o8888888o
+                  88" . "88
+                  (| -_- |)
+                  O\  =  /O
+               ____/`---'\____
+             .'  \\|     |//  `.
+            /  \\|||  :  |||//  \
+           /  _||||| -:- |||||-  \
+           |   | \\\  -  /// |   |
+           | \_|  ''\---/''  |   |
+           \  .-\__  `-`  ___/-. /
+         ___`. .'  /--.--\  `. . __
+      ."" '<  `.___\_<|>_/___.'  >'"".
+     | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+     \  \ `-.   \_ __\ /__ _/   .-` /  /
+======`-.____`-.___\_____/___.-`____.-'======
+                   `=---='
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     佛祖保佑                    永无BUG
+ */
+
 //点击渲染下级类目
 $('.category-con').delegate('.category-attr-item','click',function (e) {
 	var _self = $(this);
@@ -15,18 +38,18 @@ $('.category-con').delegate('.category-attr-item','click',function (e) {
 		             success: function(data){
 		                 console.log(data);
 		                 //回调成功后需要添加隐藏input
+		                 _self.parents('.category-item').nextAll('.category-item').remove();
 		                 var pid = data.parentId;
 		                 if (data.isTrue&&data.isTrue==1) {
 		                 	_self.parents('.category-item').after('<div class="category-item"><div class="category-attr-list-con"><ul class="category-attr-list" data-pid="'+pid+'"></ul></div><div class="category-action clearfix" id="C_acitons"><span class="category-action-addNew">新增</span><span class="category-action-sortSure hidden">完成</span></div></div>');
 		                 	var listBox = _self.parents('.category-item').next().find('.category-attr-list');
 		                 	for (i=0;i<data.itemCategoryList.length;i++) {
-		                 		var listClone = _self.clone(true);
+		                 		var listClone = '<li class="category-attr-item"><span class="category-attr-name" data-itemId="' + data.itemCategoryList[i].id + '">' + data.itemCategoryList[i].cateName + '</span><div class="category-attr-renameBox hidden"><input class="category-attr-rename" name="category-attr-rename" value=""/><div><span class="category-attr-renameSure">完成</span><span class="category-attr-renameCancel">取消</span></div></div><div class="category-attr-sortBox hidden"><input class="category-attr-sort" name="category-attr-sort" value="" /><span class="category-attr-sortSure">确认</span></div><div class="category-attr-newNameBox hidden"><input class="category-attr-newName" name="category-attr-newName" value=""/><div><span class="category-attr-newNameSure">完成</span><span class="category-attr-newNameCancel">取消</span></div></div><div class="category-add-editcon"><span class="category-attr-listNew">+</span><a class="category-attr-edit">编辑</a><ul class="category-edit-pop hidden"><li class="category-edit-pop-rename">更名</li><li class="category-edit-pop-property"><a href="/itemMetaProperty/propertyList/"'+data.itemCategoryList[i].id+'">属性</a></li><li class="category-edit-pop-sort">排序</li><li class="category-edit-pop-delete">删除</li></ul></div></li>';
 		                 		listBox.append(listClone);
-		                 		listBox.children('.category-attr-item').eq(i).find('.category-attr-name').html(data.itemCategoryList[i].cateName);
-		                 		listBox.children('.category-attr-item').eq(i).attr('data-itemId',data.itemCategoryList[i].id);
 		                 	}
 		                 	mousemove();
 		                 }
+		                 _self.siblings().removeClass('noPost');
 		                 _self.addClass('noPost');
 		             },
 		             error: function(res){
@@ -34,7 +57,6 @@ $('.category-con').delegate('.category-attr-item','click',function (e) {
 		             }
 			});
 	}
-
 	 if (e.cancelBubble) {
 		e.cancelBubble=true;
 	} else{
@@ -163,7 +185,7 @@ var pop = {
 		_self = $(this);
 	    pop.popShow('#pop_delete');
 	    //确认删除
-	    $('.category-con').delegate('.J_popSure','click',function (e) {
+	    $('.erp-container').delegate('.J_popSure','click',function (e) {
 			var Item = _self.parents('.category-attr-item');
 			var itemId = Item.find('.category-attr-name').attr('data-itemId');
 			var _data = {
@@ -177,12 +199,19 @@ var pop = {
 	            contentType: "application/json; charset=utf-8",
 	            success: function(data){
 	               console.log(data);
-	               if (data.isTrue==1) {
+	               if (data.isTrue!=1) {
 	               		pop.popHide('#pop_delete');
 						Item.remove();//成功回调后进行删除
+						
+						if () {
+							_self.parents('.category-item').nextAll().remove();
+						}
 	               } else{
 	               		pop.popHide('#pop_delete');
 	               		pop.popShow('#pop_undelete');
+	               		$('.category-con').delegate('.J_popSureClose','click',function (e) {
+	               			pop.popHide('#pop_undelete');
+	               		})
 	               }
 	           },
 	           error: function(res){
@@ -198,25 +227,25 @@ var pop = {
 	});
 //排序
 $('.category-con').delegate('.category-edit-pop-sort','click',function (event) {
-	var ItemList = $('.category-attr-item');
+	var ItemList = $(this).parents('.category-attr-list').find('.category-attr-item');
 	ItemList.each(function (i,e) {
 		$(this).find('.category-add-editcon').hide();
 		$(this).find('.category-attr-sortBox').removeClass('hidden').children('.category-attr-sort').val(i+1);
 	})
-	$('.category-action-sortSure').removeClass('hidden');
+	$(this).parents('.category-item').find('.category-action-sortSure').removeClass('hidden');
 	$('.category-con').delegate('.category-attr-sortSure','click',function (event) {
 		var Num = $(this).parents('.category-attr-item').index();
 			Num = Num +1;
 		var changeNum = $(this).siblings('.category-attr-sort').val();
 		var changeDiv = $(this).parents('.category-attr-item');
-		var newItemList = $('.category-attr-item');
+		var newItemList = $(this).parents('.category-attr-list').find('.category-attr-item');
 		var beChanged = newItemList.eq(changeNum-1);
 		if (Num>changeNum) {
 			changeDiv.insertBefore(beChanged);
 		} else if(Num<changeNum){
 			changeDiv.insertAfter(beChanged)
 		}
-		var newItemList = $('.category-attr-item');
+		var newItemList = $(this).parents('.category-attr-list').find('.category-attr-item');
 		newItemList.each(function (i,e) {
 			$(this).find('.category-attr-sort').val(i+1);
 		})
@@ -228,17 +257,36 @@ $('.category-con').delegate('.category-edit-pop-sort','click',function (event) {
 	});
 	$('.category-con').delegate('.category-action-sortSure','click',function (event) {
 		var arr =[];
-		var newItemList = $('.category-attr-item');
+		var newItemList = $(this).parents('.category-item').find('.category-attr-item');
 		newItemList.each(function (i,e) {
 			itemId = $(this).find('.category-attr-name').attr('data-itemId');
 			arr.push(itemId); 
 		})
+		var arrLength = arr.length;
+		var _data = {
+			id:arr,
+			length:arrLength
+		}
+		$.ajax({
+			type:"post",
+			url:"/category/updateCategorySequence",
+			data: JSON.stringify(_data),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function(data){
+               console.log(data);
+               $('.category-attr-sortBox').addClass('hidden');
+			   $(".category-add-editcon").show();
+			   $(".category-action-sortSure").addClass('hidden');
+           },
+           error: function(res){
+               console.log(res);
+           }
+		});
 		console.log(arr);
-		$('.category-attr-sortBox').addClass('hidden');
-		$(".category-add-editcon").show();
-		$(".category-action-sortSure").addClass('hidden');
+		
 		if (event.cancelBubble) {
-			e.cancelBubble=true;
+			event.cancelBubble=true;
 		} else{
 			 event.stopPropagation();
 		}
@@ -251,15 +299,23 @@ $('.category-con').delegate('.category-edit-pop-sort','click',function (event) {
 })
 //底部新增
 $('.category-con').delegate('.category-action-addNew','click',function (event) {
+	var _self = $(this);
 	var itemMould = $('.category-attr-item').eq(0);
 	var itemMouldInit = itemMould.clone(true);
-	$(".category-attr-list").append(itemMouldInit);
+	_self.parents('.category-item').find(".category-attr-list").append(itemMouldInit);
 	itemMouldInit.find('.category-attr-name').html('类目名');
 	itemMouldInit.find('.category-attr-newNameBox').removeClass('hidden');
 	itemMouldInit.find('.category-attr-newName').val('类目名');
+	itemMouldInit.find('.category-attr-newName').attr('data-itemId','');
 	itemMouldInit.find('.category-attr-newName').focus();
 	itemMouldInit.find('.category-attr-newName').select();
 	itemMouldInit.find('.category-add-editcon').hide();
+//	var itemMouldInit = '<li class="category-attr-item"><span class="category-attr-name" data-itemId="">类目名</span><div class="category-attr-renameBox hidden"><input class="category-attr-rename" name="category-attr-rename" value="类目名"/><div><span class="category-attr-renameSure">完成</span><span class="category-attr-renameCancel">取消</span></div></div><div class="category-attr-sortBox hidden"><input class="category-attr-sort" name="category-attr-sort" value="" /><span class="category-attr-sortSure">确认</span></div><div class="category-attr-newNameBox hidden"><input class="category-attr-newName" name="category-attr-newName" value=""/><div><span class="category-attr-newNameSure">完成</span><span class="category-attr-newNameCancel">取消</span></div></div><div class="category-add-editcon"><span class="category-attr-listNew">+</span><a class="category-attr-edit">编辑</a><ul class="category-edit-pop hidden"><li class="category-edit-pop-rename">更名</li><li class="category-edit-pop-property"><a href="/itemMetaProperty/propertyList/">属性</a></li><li class="category-edit-pop-sort">排序</li><li class="category-edit-pop-delete">删除</li></ul></div></li>';
+//	_self.parents('.category-item').find(".category-attr-list").append(itemMouldInit);
+//	itemMouldInit.find('.category-attr-newNameBox').removeClass('hidden');
+//	itemMouldInit.find('.category-attr-newName').focus();
+//	itemMouldInit.find('.category-attr-newName').select();
+//	itemMouldInit.find('.category-add-editcon').hide();
 	$('.category-con').delegate('.category-attr-newNameSure','click',function (event) {
 		var _self = $(this);
 		var Item = _self.parents('.category-attr-item');
@@ -279,6 +335,8 @@ $('.category-con').delegate('.category-action-addNew','click',function (event) {
 	             contentType: "application/json; charset=utf-8",
 	             success: function(data){
 	                 console.log(data);
+	                 var id = data.catgoryId;
+	                 _self.parents('.category-attr-item').find('.category-attr-name').attr('data-itemId',id);
 	                 //回调成功后需要添加隐藏input,并重新渲染当前类目或者回调id
 	             },
 	             error: function(res){
@@ -288,9 +346,9 @@ $('.category-con').delegate('.category-action-addNew','click',function (event) {
 		Item.find('.category-attr-newNameBox').addClass('hidden');
 		Item.find('.category-add-editcon').show();
 		if (event.cancelBubble) {
-			e.cancelBubble=true;
+			event.cancelBubble=true;
 		} else{
-			 event.stopPropagation();
+			event.stopPropagation();
 		}
 	});
 	$('.category-con').delegate('.category-attr-newNameCancel','click',function (event) {
@@ -299,40 +357,56 @@ $('.category-con').delegate('.category-action-addNew','click',function (event) {
 		Item.find('.category-attr-newNameBox').addClass('hidden');
 		Item.find('.category-add-editcon').show();
 		if (event.cancelBubble) {
-			e.cancelBubble=true;
+			event.cancelBubble=true;
 		} else{
-			 event.stopPropagation();
+			event.stopPropagation();
 		}
 	})
 	if (event.cancelBubble) {
-		e.cancelBubble=true;
+		event.cancelBubble=true;
 	} else{
-		 event.stopPropagation();
+		event.stopPropagation();
 	}
 })
 // “+”新增
 $('.category-con').delegate('.category-attr-listNew','click',function (event) {
-	event.stopPropagation();
-	var pid = $(this).parents('.category-attr-item').find('.category-attr-name').attr('data-itemId');
+	var _self = $(this);
+	var pid = _self.parents('.category-attr-item').find('.category-attr-name').attr('data-itemId');
 	var _data = {
 		pid:pid
 	}
-	$.ajax({
-			type:"post",
-			url:"/category/findByParent",
-			data: JSON.stringify(_data),
-	             dataType: "json",
-	             contentType: "application/json; charset=utf-8",
-	             success: function(data){
-	                 console.log(data);
-	                 
-	                 
-	                 //渲染下级类目（不能刷新页面），然后触发新增条目
-	                 
-	                 $(this).parents('.category-attr-list').next().find('.category-action-addNew').trigger('click');
-	             },
-	             error: function(res){
-	                 console.log(res);
-	             }
-		});
+	if (_self.is('.noAdd')!=true) {
+			$.ajax({
+				type:"post",
+				url:"/category/findByParent",
+				data: JSON.stringify(_data),
+		             dataType: "json",
+		             contentType: "application/json; charset=utf-8",
+		             success: function(data){
+		                 console.log(data);
+		                 //回调成功后需要添加隐藏input
+		                 _self.parents('.category-item').nextAll('.category-item').remove();
+//		                 var pid = data.parentId;
+	                 	_self.parents('.category-item').after('<div class="category-item"><div class="category-attr-list-con"><ul class="category-attr-list" data-pid="'+pid+'"></ul></div><div class="category-action clearfix" id="C_acitons"><span class="category-action-addNew">新增</span><span class="category-action-sortSure hidden">完成</span></div></div>');
+	                 	var listBox = _self.parents('.category-item').next().find('.category-attr-list');
+	                 	for (i=0;i<data.itemCategoryList.length;i++) {
+	                 		var listClone = '<li class="category-attr-item"><span class="category-attr-name" data-itemId="' + data.itemCategoryList[i].id + '">' + data.itemCategoryList[i].cateName + '</span><div class="category-attr-renameBox hidden"><input class="category-attr-rename" name="category-attr-rename" value=""/><div><span class="category-attr-renameSure">完成</span><span class="category-attr-renameCancel">取消</span></div></div><div class="category-attr-sortBox hidden"><input class="category-attr-sort" name="category-attr-sort" value="" /><span class="category-attr-sortSure">确认</span></div><div class="category-attr-newNameBox hidden"><input class="category-attr-newName" name="category-attr-newName" value=""/><div><span class="category-attr-newNameSure">完成</span><span class="category-attr-newNameCancel">取消</span></div></div><div class="category-add-editcon"><span class="category-attr-listNew">+</span><a class="category-attr-edit">编辑</a><ul class="category-edit-pop hidden"><li class="category-edit-pop-rename">更名</li><li class="category-edit-pop-property"><a href="/itemMetaProperty/propertyList/"'+data.itemCategoryList[i].id+'">属性</a></li><li class="category-edit-pop-sort">排序</li><li class="category-edit-pop-delete">删除</li></ul></div></li>';
+	                 		listBox.append(listClone);
+		                 	mousemove();
+		                 }
+		                 _self.siblings().removeClass('noAdd');
+		                 _self.addClass('noAdd');
+		                 _self.parents('.category-item').next().find('.category-action-addNew').trigger('click');
+		             },
+		             error: function(res){
+		                 console.log(res);
+		             }
+			});
+	}
+
+	if (event.cancelBubble) {
+		event.cancelBubble=true;
+	} else{
+		event.stopPropagation();
+	}
 })
