@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>迎天下ERP管理系统-图片管理</title>
+<link rel="stylesheet" type="text/css" href="../../static/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../static/css/include.css"/>
+<link rel="stylesheet" type="text/css" href="../../static/css/imageManage.css"/>
+</head>
+<body>
+<div class="lazy" ng-app>
+	<div ng-include="'../include/head.html'"></div>
+	<div class="manage-main">
+		<div ng-include="'../include/left.html'"></div>
+		<div class="propManage" style="text-align: initial;">
+			<div class="title-content">
+				<div class="title">类目管理</div>
+			</div>
+			<div class="prop-tabBar">
+				<a href="propManage.html" class="prop-tab">类目属性管理</a>
+				<a class="prop-tab active">类目sku管理</a>
+			</div>
+			<div class="bread-nav">当前类目：<span class="bread-item J_categoryId" data-categoryId="1">男装</span></div>
+			<div class="propMain-content J_sku_main">
+				<div class="sku-part clearfix">
+					<div class="sku-tit">颜色分类:</div>
+					<div class="sku-box">
+						<div class="sku-li">
+							<label>是否有颜色分类:</label>
+							<input id="ifColor" type="checkbox" disabled checked>
+						</div>
+					</div>
+				</div>
+				<div class="sku-part clearfix">
+					<div class="sku-tit">规格:</div>
+					<div class="sku-box">
+						<div class="sku-li">
+							<label>规格名称:</label>
+							<input id="skuName" type="text" disabled value="尺寸">
+						</div>
+						<div class="sku-li">
+							<label>规格SKU:<br/>(一行一个值)</label>
+							<textarea id="skuList" class="sku-textarea" disabled></textarea>
+						</div>
+						<div class="sku-btn-box sku-btn-edit">
+							<a class="sku-btn J_editSave" href="javascript:;">保存</a>
+							<a class="sku-btn J_editCanel" href="javascript:;">取消</a>
+						</div>
+						<div class="sku-btn-box sku-btn-view">
+							<a class="sku-btn J_editOpen" href="javascript:;">编辑</a>
+						</div>
+						<div class="sku-view-box">
+							<div>展示效果</div>
+							<div class="sku-view clearfix">
+								<div class="sku-view1 J_view_name"><span>尺寸</span>:</div>
+								<div class="sku-view2 J_view_list">
+									<span><input type="checkbox" disabled><label>S</label></span>
+									<span><input type="checkbox" disabled><label>M</label></span>
+									<span><input type="checkbox" disabled><label>L</label></span>
+									<span><input type="checkbox" disabled><label>LL</label></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../../static/js/jquery-1.11.3.min.js"></script>
+<script src="../../static/js/propManage-sku.js"></script>
+</body>
+</html>

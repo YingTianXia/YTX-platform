@@ -14,7 +14,7 @@
 var config =  {
     path: '', //laydate所在路径
     defSkin: 'default', //初始化皮肤
-    format: 'YYYY/MM/DD hh:mm:ss', //日期格式
+    format: 'YYYY-MM-DD hh:mm:ss', //日期格式
     min: '1900-01-01 00:00:00', //最小日期
     max: '2099-12-31 23:59:59', //最大日期
     isv: false,

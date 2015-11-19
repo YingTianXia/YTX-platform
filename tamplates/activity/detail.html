@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理-活动管理-活动详情</title>
+    <link rel="stylesheet" href="../../static/css/common.css"/>
+    <link rel="stylesheet" href="../../static/css/activity.css"/>
+</head>
+<body>
+    <div class="pub-content">
+        <div class="pub-right">
+            <div class="pub-title-box">
+                <div class="pub-title">活动详情</div>
+            </div>
+            <div class="pub-box-noborder">
+                <div class="act-detail-tit">活动信息</div>
+                <div class="act-detail-table">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="bg-grey">活动名称</td>
+                                <td>迎春特卖</td>
+                                <td class="bg-grey">活动开始报名时间</td>
+                                <td>2015-11-11 11:00:11</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey">一级分类</td>
+                                <td>服饰</td>
+                                <td class="bg-grey">活动截止报名时间</td>
+                                <td>2015-11-11 11:00:11</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey">二级分类</td>
+                                <td>男装</td>
+                                <td class="bg-grey">活动开始时间</td>
+                                <td>2015-11-11 11:00:11</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey">参与活动商家数量限制</td>
+                                <td>1231</td>
+                                <td class="bg-grey">活动结束时间</td>
+                                <td>2015-11-11 11:00:11</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey">单个商家报名商品数量限制</td>
+                                <td>最少10 最大50</td>
+                                <td class="bg-grey">活动备注</td>
+                                <td>活动备注活动备注活动备注活动备注活动备注</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey">禁止黑名单商家</td>
+                                <td>是</td>
+                                <td class="bg-grey">活动状态</td>
+                                <td>进行中</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey">商家须知</td>
+                                <td colspan="3">
+                                    品牌报名操作如下：<br/>
+                                    一、选择参聚活动、参聚品牌和对应坑位后出现待选商品列表，你可以：<br/>
+                                    a) 跳过此步骤直接完成报名进入商家待审核状态；<br/>
+                                    b) 在待选商品列表，商家可以点击“加入”选择需要参聚的商品（品牌团报名时提交爆款商品将提升通过率
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a class="act-detail-btnred" href="javascript:;">停止活动</a>
+                <div class="act-detail-cutline"></div>
+                <div class="act-detail-tit">报名商家列表</div>
+                <div class="act-detail-searchbar">
+                    <input type="radio" id="seller_total" name="seller_list">
+                    <label for="seller_total">已报名商家:20</label>
+                    <input type="radio" id="seller_pass" name="seller_list">
+                    <label for="seller_pass">审核通过商家:20</label>
+                    <input type="radio" id="seller_wait" name="seller_list">
+                    <label for="seller_wait">待审核商家:20</label>
+                    <input type="radio" id="seller_notpass" name="seller_list">
+                    <label for="seller_notpass">审核未通过商家:20</label>
+                    <a class="act-detail-searchbar-btn" href="javascript:;">筛选</a>
+                </div>
+                <div class="act-list-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="10%">商家ID</th>
+                                <th width="18%">商家名称</th>
+                                <th width="18%">商家活动标题</th>
+                                <th width="12%">商家活动ID</th>
+                                <th width="12%">报名商品数量</th>
+                                <th width="10%">审核状态</th>
+                                <th width="20%">操作</th>
+                            </tr>  
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12313121</td>
+                                <td>品牌周年庆优惠券</td>
+                                <td>品牌周年庆优惠券品牌周年庆优惠券</td>
+                                <td>12313213</td>
+                                <td>1233213312</td>
+                                <td>待审核</td>
+                                <td>
+                                    <a class="act-list-operation" href="javascript:;">查看</a>
+                                    |
+                                    <a class="act-list-operation" href="javascript:;">审核</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12313121</td>
+                                <td>品牌周年庆优惠券</td>
+                                <td>品牌周年庆优惠券品牌周年庆优惠券</td>
+                                <td>12313213</td>
+                                <td>1233213312</td>
+                                <td>通过</td>
+                                <td>
+                                    <a class="act-list-operation" href="javascript:;">查看</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="act-page">
+                    <a class="act-page-num lt" href="javascript:;">&lt;</a>
+                    <a class="act-page-num" href="javascript:;">1</a>
+                    <a class="act-page-num" href="javascript:;">2</a>
+                    <a class="act-page-num" href="javascript:;">3</a>
+                    ...
+                    <a class="act-page-num" href="javascript:;">5</a>
+                    <a class="act-page-num gt" href="javascript:;">&gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

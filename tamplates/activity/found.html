@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理-活动管理-活动创建</title>
+    <link rel="stylesheet" href="../../static/css/common.css"/>
+    <link rel="stylesheet" href="../../static/css/activity.css"/>
+</head>
+<body>
+    <div class="pub-content">
+        <div class="pub-right">
+            <div class="pub-title-box">
+                <div class="pub-title">活动创建</div>
+            </div>
+            <div class="pub-box-noborder">
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">活动类型</div>
+                    <div class="act-found-con">
+                        <select>
+                            <option value="" selected="true" disabled="true">请选择</option>
+                            <option value="">迎品汇</option>
+                            <option value="">类型2</option>
+                            <option value="">类型3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">活动名称</div>
+                    <div class="act-found-con">
+                        <input class="act-found-input1" type="text">
+                    </div>
+                </div>
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">一级分类</div>
+                    <div class="act-found-con">
+                        <input type="radio" name="class1" id="class1_1">
+                        <label class="act-found-label1" for="class1_1">服饰</label>
+                        <input type="radio" name="class1" id="class1_2">
+                        <label class="act-found-label1" for="class1_2">服饰</label>
+                        <input type="radio" name="class1" id="class1_3">
+                        <label class="act-found-label1" for="class1_3">服饰</label>
+                    </div>
+                </div>
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">二级分类</div>
+                    <div class="act-found-con w-600">
+                        <input type="checkbox" name="class1" id="class2_1">
+                        <label class="act-found-label1" for="class2_1">男装</label>
+                        <input type="checkbox" name="class1" id="class2_2">
+                        <label class="act-found-label1" for="class2_2">女装</label>
+                        <input type="checkbox" name="class1" id="class2_3">
+                        <label class="act-found-label1" for="class2_3">女装</label>
+                        <input type="checkbox" name="class1" id="class2_4">
+                        <label class="act-found-label1" for="class2_4">女装</label>
+                        <input type="checkbox" name="class1" id="class2_5">
+                        <label class="act-found-label1" for="class2_5">女装</label>
+                        <input type="checkbox" name="class1" id="class2_6">
+                        <label class="act-found-label1" for="class2_6">女装</label>
+                        <input type="checkbox" name="class1" id="class2_7">
+                        <label class="act-found-label1" for="class2_7">女装</label>
+                        <input type="checkbox" name="class1" id="class2_8">
+                        <label class="act-found-label1" for="class2_8">女装</label>
+                        <input type="checkbox" name="class1" id="class2_9">
+                        <label class="act-found-label1" for="class2_9">女装</label>
+                        <input type="checkbox" name="class1" id="class2_10">
+                        <label class="act-found-label1" for="class2_10">女装</label>
+                        <input type="checkbox" name="class1" id="class2_11">
+                        <label class="act-found-label1" for="class2_11">女装</label>
+                        <input type="checkbox" name="class1" id="class2_12">
+                        <label class="act-found-label1" for="class2_12">女装</label>
+                    </div>
+                </div>
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">活动时间</div>
+                    <div class="act-found-con">
+                        <p>活动报名开始时间</p>
+                        <p><input class="act-found-input2" type="text"></p>
+                        <p>活动报名截止时间</p>
+                        <p><input class="act-found-input2" type="text"></p>
+                        <p>活动开始时间</p>
+                        <p><input class="act-found-input2" type="text"></p>
+                        <p>活动结束时间</p>
+                        <p><input class="act-found-input2" type="text"></p>
+                    </div>
+                </div>
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">规则设置</div>
+                    <div class="act-found-con">
+                        <p>
+                            活动参与商家数量限制
+                            <span class="act-found-tip1">最多(含)</span>
+                            <input class="act-found-input3" type="num">
+                        </p>
+                        <p>
+                            单个商家报名商品限制
+                            <span class="act-found-tip1">最少(含)</span>
+                            <input class="act-found-input3" type="num">
+                            <span class="act-found-tip1">最多(含)</span>
+                            <input class="act-found-input3" type="num">
+                        </p>
+                        <p>
+                            <span class="mr-30">商家黑白名单限制</span>
+                            <input type="checkbox" name="class1" id="blacklist">
+                            <label class="act-found-label1" for="blacklist">禁止黑名单商家</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">商家须知</div>
+                    <div class="act-found-con">
+                        <textarea class="act-found-textarea1"></textarea>
+                    </div>
+                </div>
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">备注</div>
+                    <div class="act-found-con">
+                        <input class="act-found-input1" type="text" value="仅平台可见">
+                    </div>
+                </div>
+                <div class="act-found-li clearfix">
+                    <div class="act-found-tit">&nbsp;</div>
+                    <div class="act-found-con">
+                        <a class="act-found-btn1" href="list.html">确认创建活动</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
