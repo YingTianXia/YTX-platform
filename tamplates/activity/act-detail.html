@@ -65,18 +65,20 @@
                         </tbody>
                     </table>
                 </div>
-                <a class="act-detail-btnred" href="javascript:;">停止活动</a>
+                <!-- <a class="act-detail-btnred" href="javascript:;">停止活动</a> -->
                 <div class="act-detail-cutline"></div>
                 <div class="act-detail-tit">报名商家列表</div>
                 <div class="act-detail-searchbar">
                     <input type="radio" id="seller_total" name="seller_list">
                     <label for="seller_total">已报名商家:20</label>
-                    <input type="radio" id="seller_pass" name="seller_list">
-                    <label for="seller_pass">审核通过商家:20</label>
                     <input type="radio" id="seller_wait" name="seller_list">
                     <label for="seller_wait">待审核商家:20</label>
-                    <input type="radio" id="seller_notpass" name="seller_list">
-                    <label for="seller_notpass">审核未通过商家:20</label>
+                    <input type="radio" id="brand_pass" name="seller_list">
+                    <label for="brand_pass">品牌已审核商家:20</label>
+                    <input type="radio" id="item_pass" name="seller_list">
+                    <label for="item_pass">商品已审核商家:20</label>
+                    <input type="radio" id="quality_pass" name="seller_list">
+                    <label for="quality_pass">质检已审核商家:20</label>
                     <a class="act-detail-searchbar-btn" href="javascript:;">筛选</a>
                 </div>
                 <div class="act-list-table">
@@ -102,8 +104,6 @@
                                 <td>待审核</td>
                                 <td>
                                     <a class="act-list-operation" href="javascript:;">查看</a>
-                                    |
-                                    <a class="act-list-operation" href="javascript:;">审核</a>
                                 </td>
                             </tr>
                             <tr>
@@ -114,7 +114,7 @@
                                 <td>1233213312</td>
                                 <td>通过</td>
                                 <td>
-                                    <a class="act-list-operation" href="javascript:;">查看</a>
+                                    <a class="act-list-operation" href="act-examine-brand.html">审核</a>
                                 </td>
                             </tr>
                         </tbody>

@@ -25,16 +25,28 @@ var pop = {
 			$('#J_popMask').show();
 		}
 	}
-}
-
-var activity = {
-	init:function(){
-		var _this = this;
-		_this.bindEv();
-	},
-	bindEv:function(){
-		var _this = this;
+};
+(function($){
+	function init(){
+		pop.init();
+		bindEv();
+		wordCount();
 	}
-}
-pop.init();
-activity.init();
+	function bindEv(){
+		$('.J_popRejectBrand').on('click',function(){
+			pop.popShow('#pop_reject_brand');
+		});
+		$('.J_popRejectItem').on('click',function(){
+			pop.popShow('#pop_reject_item');
+		});
+	}
+	function wordCount(){
+		var _wordBox = $('.J_wordCount');
+		_wordBox.each(function(i,e){
+			$('.J_wordInput',e).on('keyup blur',function(f){
+				$('.J_wordNum',e).html(f.target.value.length);
+			});
+		});
+	}
+	init();
+})(jQuery)
